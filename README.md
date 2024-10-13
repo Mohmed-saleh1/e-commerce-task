@@ -47,7 +47,7 @@ To run the project locally, you need to have Node.js, MongoDB, and npm (or yarn)
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/nestjs-ecommerce-api.git
+git clone https://github.com/Mohmed-saleh1/e-commerce-task.git
 cd nestjs-ecommerce-api
 ```
 
