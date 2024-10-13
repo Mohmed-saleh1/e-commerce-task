@@ -1,73 +1,161 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# **E-Commerce API with NestJS**
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+This project is a backend API built using [NestJS](https://nestjs.com/) that supports authentication, authorization, and CRUD operations for Users, Products, Vendors, and Carts. It is integrated with MongoDB as the database and uses JWT for secure access.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## **Table of Contents**
 
-## Description
+- [Features](#features)
+- [Technologies](#technologies)
+- [Getting Started](#getting-started)
+- [Installation](#installation)
+- [Environment Variables](#environment-variables)
+- [Running the Application](#running-the-application)
+- [Available Endpoints](#available-endpoints)
+- [Authentication & Authorization](#authentication--authorization)
+- [API Documentation](#api-documentation)
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## **Features**
 
-## Installation
+- **User Authentication**: Users can register and log in using JWT tokens.
+- **Role-based Authorization**: Vendors can create and manage products; users can add items to carts.
+- **CRUD Operations**: Full CRUD capabilities for Users, Products, Vendors, and Carts.
+- **MongoDB Integration**: Uses MongoDB as the database with Mongoose ORM for schema-based interaction.
+- **Modular Structure**: Organized in modules for scalability and maintainability.
+
+## **Technologies**
+
+- [NestJS](https://nestjs.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [MongoDB](https://www.mongodb.com/)
+- [Mongoose](https://mongoosejs.com/)
+- [Passport](http://www.passportjs.org/) for authentication
+- [JWT (JSON Web Tokens)](https://jwt.io/) for authorization
+- [bcrypt](https://www.npmjs.com/package/bcrypt) for password hashing
+
+## **Getting Started**
+
+To run the project locally, you need to have Node.js, MongoDB, and npm (or yarn) installed on your machine.
+
+### **Prerequisites**
+
+- Node.js (v14 or higher)
+- MongoDB (running locally or via cloud)
+- npm or yarn
+
+## **Installation**
+
+1. Clone the repository:
 
 ```bash
-$ npm install
+git clone https://github.com/yourusername/nestjs-ecommerce-api.git
+cd nestjs-ecommerce-api
 ```
 
-## Running the app
+2. Install the dependencies:
 
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+npm install
 ```
 
-## Test
+or
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+yarn install
 ```
 
-## Support
+## **Environment Variables**
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+Create a `.env` file in the root directory with the following content:
 
-## Stay in touch
+```
+# MongoDB connection string
+MONGODB_URI=mongodb://localhost:27017/ecommerce
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+# JWT Secret Key
+JWT_SECRET=your_jwt_secret
 
-## License
+# JWT Token Expiration
+JWT_EXPIRATION=3600s
+```
 
-Nest is [MIT licensed](LICENSE).
+## **Running the Application**
+
+You can run the application in development mode by using the following command:
+
+```bash
+npm run start:dev
+```
+
+or
+
+```bash
+yarn start:dev
+```
+
+This will start the NestJS server on the default port (http://localhost:3000).
+
+## **Available Endpoints**
+
+Here are some of the key endpoints available in the application.
+
+### **Auth Endpoints**
+
+- **POST** `/auth/login`: Authenticate and receive a JWT token.
+
+### **Users Endpoints**
+
+- **POST** `/users`: Create a new user.
+- **GET** `/users`: Get a list of all users.
+- **GET** `/users/:id`: Get details of a specific user by ID.
+- **PATCH** `/users/:id`: Update a user's details.
+- **DELETE** `/users/:id`: Delete a user.
+
+### **Products Endpoints**
+
+- **POST** `/products`: Create a new product (Vendor only).
+- **GET** `/products`: Get a list of all products.
+- **GET** `/products/:id`: Get details of a specific product.
+- **PATCH** `/products/:id`: Update product details (Vendor only).
+- **DELETE** `/products/:id`: Delete a product (Vendor only).
+
+### **Vendors Endpoints**
+
+- **POST** `/vendors`: Register a new vendor.
+- **GET** `/vendors`: Get a list of all vendors.
+- **GET** `/vendors/:id`: Get details of a specific vendor.
+- **PATCH** `/vendors/:id`: Update vendor details.
+- **DELETE** `/vendors/:id`: Delete a vendor.
+
+### **Carts Endpoints**
+
+- **POST** `/carts`: Create a new cart.
+- **GET** `/carts`: Get a list of all carts.
+- **GET** `/carts/:id`: Get details of a specific cart.
+- **PATCH** `/carts/:id`: Update a cart.
+- **DELETE** `/carts/:id`: Delete a cart.
+
+## **Authentication & Authorization**
+
+The application uses **JWT (JSON Web Token)** for securing routes. Here's a quick guide to how it works:
+
+1. **Login**: Use the `/auth/login` endpoint to get a JWT token. The user must provide an email and password.
+2. **Authorization**: The token must be included in the `Authorization` header as a Bearer token for all subsequent requests to protected routes (e.g., creating a product).
+
+Example:
+
+```
+Authorization: Bearer your_jwt_token
+```
+
+### **Roles**
+
+- `vendor`: Vendors have permission to create, update, and delete products.
+- `user`: Regular users can browse and interact with products and manage their own carts.
+
+## **API Documentation**
+
+You can generate and access the API documentation (Swagger) by navigating to:
+
+```
+http://localhost:3000/api
+```
