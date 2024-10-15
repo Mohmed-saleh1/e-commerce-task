@@ -1,6 +1,7 @@
-Here's an updated version of your README file with added **Categories** and **Subcategories** sections.
+Here’s an improved version of the README file with the necessary categories and subcategories sections:
 
-````markdown
+---
+
 # **E-Commerce API with NestJS**
 
 This project is a backend API built using [NestJS](https://nestjs.com/) that supports authentication, authorization, and CRUD operations for Users, Products, Vendors, Categories, Subcategories, and Carts. It is integrated with MongoDB as the database and uses JWT for secure access.
@@ -20,7 +21,7 @@ This project is a backend API built using [NestJS](https://nestjs.com/) that sup
 ## **Features**
 
 - **User Authentication**: Users can register and log in using JWT tokens.
-- **Role-based Authorization**: Vendors can create and manage products; users can add items to carts.
+- **Role-based Authorization**: Vendors can create and manage products, categories, and subcategories; users can add items to carts.
 - **CRUD Operations**: Full CRUD capabilities for Users, Products, Vendors, Categories, Subcategories, and Carts.
 - **MongoDB Integration**: Uses MongoDB as the database with Mongoose ORM for schema-based interaction.
 - **Modular Structure**: Organized in modules for scalability and maintainability.
@@ -49,29 +50,28 @@ To run the project locally, you need to have Node.js, MongoDB, and npm (or yarn)
 
 1. Clone the repository:
 
-```bash
-git clone https://github.com/Mohmed-saleh1/e-commerce-task.git
-cd nestjs-ecommerce-api
-```
-````
+    ```bash
+    git clone https://github.com/Mohmed-saleh1/e-commerce-task.git
+    cd nestjs-ecommerce-api
+    ```
 
 2. Install the dependencies:
 
-```bash
-npm install
-```
+    ```bash
+    npm install
+    ```
 
-or
+    or
 
-```bash
-yarn install
-```
+    ```bash
+    yarn install
+    ```
 
 ## **Environment Variables**
 
 Create a `.env` file in the root directory with the following content:
 
-```
+```env
 # MongoDB connection string
 MONGODB_URI=mongodb://localhost:27017/ecommerce
 
@@ -171,4 +171,3 @@ Authorization: Bearer your_jwt_token
 
 - `vendor`: Vendors have permission to create, update, and delete products, categories, and subcategories.
 - `user`: Regular users can browse and interact with products and manage their own carts.
-
