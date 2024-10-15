@@ -4,14 +4,22 @@ import { VendorsModule } from './vendors/vendors.module';
 import { UsersModule } from './users/users.module';
 import { CartsModule } from './carts/carts.module';
 import { AuthModule } from './auth/auth.module';
+import { SubCategoriesModule } from './subCategories/subCategories.module';
+import { CategoriesModule } from './categories/category.module';
+import { MongooseModule } from '@nestjs/mongoose';
 
 @Module({
   imports: [
+    MongooseModule.forRoot(
+      'mongodb+srv://hossamkamal:hossam_2003@dentistdb.9nel4nq.mongodb.net/',
+    ),
     ProductsModule,
     VendorsModule,
     UsersModule,
     CartsModule,
     AuthModule,
+    SubCategoriesModule,
+    CategoriesModule,
   ],
   controllers: [],
   providers: [],

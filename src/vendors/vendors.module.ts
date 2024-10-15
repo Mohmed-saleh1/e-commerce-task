@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { Vendor, VendorSchema } from './schemas/vendor.schema';
+import { Vendor, VendorSchema } from './vendor.entity';
 import { VendorsService } from './vendors.service';
 import { VendorsController } from './vendors.controller';
 
