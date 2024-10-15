@@ -1,6 +1,9 @@
+Here's an updated version of your README file with added **Categories** and **Subcategories** sections.
+
+````markdown
 # **E-Commerce API with NestJS**
 
-This project is a backend API built using [NestJS](https://nestjs.com/) that supports authentication, authorization, and CRUD operations for Users, Products, Vendors, and Carts. It is integrated with MongoDB as the database and uses JWT for secure access.
+This project is a backend API built using [NestJS](https://nestjs.com/) that supports authentication, authorization, and CRUD operations for Users, Products, Vendors, Categories, Subcategories, and Carts. It is integrated with MongoDB as the database and uses JWT for secure access.
 
 ## **Table of Contents**
 
@@ -18,7 +21,7 @@ This project is a backend API built using [NestJS](https://nestjs.com/) that sup
 
 - **User Authentication**: Users can register and log in using JWT tokens.
 - **Role-based Authorization**: Vendors can create and manage products; users can add items to carts.
-- **CRUD Operations**: Full CRUD capabilities for Users, Products, Vendors, and Carts.
+- **CRUD Operations**: Full CRUD capabilities for Users, Products, Vendors, Categories, Subcategories, and Carts.
 - **MongoDB Integration**: Uses MongoDB as the database with Mongoose ORM for schema-based interaction.
 - **Modular Structure**: Organized in modules for scalability and maintainability.
 
@@ -50,6 +53,7 @@ To run the project locally, you need to have Node.js, MongoDB, and npm (or yarn)
 git clone https://github.com/Mohmed-saleh1/e-commerce-task.git
 cd nestjs-ecommerce-api
 ```
+````
 
 2. Install the dependencies:
 
@@ -126,6 +130,22 @@ Here are some of the key endpoints available in the application.
 - **PATCH** `/vendors/:id`: Update vendor details.
 - **DELETE** `/vendors/:id`: Delete a vendor.
 
+### **Categories Endpoints**
+
+- **POST** `/categories`: Create a new category (Vendor only).
+- **GET** `/categories`: Get a list of all categories.
+- **GET** `/categories/:id`: Get details of a specific category.
+- **PATCH** `/categories/:id`: Update category details (Vendor only).
+- **DELETE** `/categories/:id`: Delete a category (Vendor only).
+
+### **Subcategories Endpoints**
+
+- **POST** `/subcategories`: Create a new subcategory (Vendor only).
+- **GET** `/subcategories`: Get a list of all subcategories.
+- **GET** `/subcategories/:id`: Get details of a specific subcategory.
+- **PATCH** `/subcategories/:id`: Update subcategory details (Vendor only).
+- **DELETE** `/subcategories/:id`: Delete a subcategory (Vendor only).
+
 ### **Carts Endpoints**
 
 - **POST** `/carts`: Create a new cart.
@@ -149,13 +169,6 @@ Authorization: Bearer your_jwt_token
 
 ### **Roles**
 
-- `vendor`: Vendors have permission to create, update, and delete products.
+- `vendor`: Vendors have permission to create, update, and delete products, categories, and subcategories.
 - `user`: Regular users can browse and interact with products and manage their own carts.
 
-## **API Documentation**
-
-You can generate and access the API documentation (Swagger) by navigating to:
-
-```
-http://localhost:3000/api
-```

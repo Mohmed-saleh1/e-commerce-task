@@ -10,9 +10,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 
 @Module({
   imports: [
-    MongooseModule.forRoot(
-      'mongodb+srv://hossamkamal:hossam_2003@dentistdb.9nel4nq.mongodb.net/',
-    ),
+    MongooseModule.forRoot('mongodb://localhost:27017/e-commerce'),
     ProductsModule,
     VendorsModule,
     UsersModule,
